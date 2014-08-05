@@ -619,6 +619,7 @@ class GroupConfigurationsTest(ContainerBase, SplitTestMixin):
         self.page.visit()
         config = self.page.group_configurations[0]
         config.toggle()
+        # TODO Check that warning icon and message are not present
         config.click_outline_anchor()
 
         # Waiting for the page load and verify that we've landed on course outline page
@@ -660,6 +661,7 @@ class GroupConfigurationsTest(ContainerBase, SplitTestMixin):
         config = self.page.group_configurations[0]
         config.toggle()
         usage = config.usages[0]
+        # TODO Check that warning icon and message are present
         config.click_unit_anchor()
 
         unit = ContainerPage(self.browser, vertical.locator)
@@ -783,4 +785,158 @@ class GroupConfigurationsTest(ContainerBase, SplitTestMixin):
         self.assertEqual(
             group_configuration_link_name,
             self.page.group_configurations[1].name
+        )
+
+    def test_details_error_validation_message(self):
+        """
+        Scenario: When a Content Experiment uses a Group Configuration, ensure
+        that an error validation message appears if necessary.
+
+        Given I have a course with a Group Configuration containing two Groups
+        And a Content Experiment is assigned to that Group Configuration
+        When I go to the Group Configuration Page
+        And I add a Group
+        Then I see an error icon and message in the Group Configuration details view.
+        """
+        # Create a new group configurations with two groups
+        self.course_fixture._update_xblock(self.course_fixture._course_location, {
+            "metadata": {
+                u"user_partitions": [
+                    UserPartition(0, "Name", "Description.", [Group("0", "Group A"), Group("1", "Group B")]).to_json()
+                ],
+            },
+        })
+        # Assign newly created group configuration to unit
+        vertical = self.course_fixture.get_nested_xblocks(category="vertical")[0]
+        self.course_fixture.create_xblock(
+            vertical.locator,
+            XBlockFixtureDesc('split_test', 'Test Content Experiment', metadata={'user_partition_id': 0})
+        )
+        # Go to the Group Configuration Page and add group
+        self.page.visit()
+        config = self.page.group_configurations[0]
+        config.edit()
+        config.add_group()
+        config.save()
+        config.toggle()
+        # Check that error icon is present
+        css = ".wrapper-group-configuration-usages .icon-exclamation-sign"
+        self.assertTrue(self.page.q(css=css).present)
+        # Check that error message is present
+        css = ".wrapper-group-configuration-usages .group-configuration-validation-message"
+        self.assertTrue(self.page.q(css=css).present)
+        self.assertIn(
+            "This content experiment has issues that affect content visibility.",
+            self.page.q(css=css).text[0]
+        )
+
+    def test_details_warning_validation_message(self):
+        """
+        Scenario: When a Content Experiment uses a Group Configuration, ensure
+        that a warning validation message appears if necessary.
+
+        Given I have a course with a Group Configuration containing three Groups
+        And a Content Experiment is assigned to that Group Configuration
+        When I go to the Group Configuration Page
+        And I remove a Group
+        Then I see a  warning icon and message in the Group Configuration details view.
+        """
+        # Create a new group configurations with two groups
+        self.course_fixture._update_xblock(self.course_fixture._course_location, {
+            "metadata": {
+                u"user_partitions": [
+                    UserPartition(0, "Name", "Description.", [Group("0", "Group A"), Group("1", "Group B"), Group("2", "Group C")]).to_json()
+                ],
+            },
+        })
+        # Assign newly created group configuration to unit
+        vertical = self.course_fixture.get_nested_xblocks(category="vertical")[0]
+        self.course_fixture.create_xblock(
+            vertical.locator,
+            XBlockFixtureDesc('split_test', 'Test Content Experiment', metadata={'user_partition_id': 0})
+        )
+        # Go to the Group Configuration Page and remove group
+        self.page.visit()
+        config = self.page.group_configurations[0]
+        config.edit()
+        config.groups[2].remove()
+        config.save()
+        config.toggle()
+        # Check that warning icon is present
+        css = ".wrapper-group-configuration-usages .icon-warning-sign"
+        self.assertTrue(self.page.q(css=css).present)
+        # Check that error message is present
+        css = ".wrapper-group-configuration-usages .group-configuration-validation-message"
+        self.assertTrue(self.page.q(css=css).present)
+        self.assertIn(
+            "This content experiment has issues that affect content visibility.",
+            self.page.q(css=css).text[0]
+        )
+
+    def test_edit_warning_message_empty_usage(self):
+        """
+        Scenario: When a Group Configuration is not used, ensure that there are no warning icon and message.
+
+        Given I have a course with a Group Configuration containing two Groups
+        When I edit the Group Configuration
+        Then I do not see a warning icon and message
+        """
+        # Create a new group configurations
+        self.course_fixture._update_xblock(self.course_fixture._course_location, {
+            "metadata": {
+                u"user_partitions": [
+                    UserPartition(0, "Name", "Description.", [Group("0", "Group A"), Group("1", "Group B")]).to_json(),
+                ],
+            },
+        })
+
+        # Go to the Group Configuration Page
+        self.page.visit()
+        config = self.page.group_configurations[0]
+        config.edit()
+        # Check that warning icon is not present
+        css = ".wrapper-group-configuration-validation .icon-warning-sign"
+        self.assertFalse(self.page.q(css=css).present)
+        # Check that warning message is not present
+        css = ".wrapper-group-configuration-validation .group-configuration-validation-text"
+        self.assertFalse(self.page.q(css=css).present)
+
+    def test_edit_warning_message_non_empty_usage(self):
+        """
+        Scenario: When a Group Configuration is used, ensure that there are a warning icon and message.
+
+        Given I have a course with a Group Configuration containing two Groups
+        When I edit the Group Configuration
+        Then I see a warning icon and message
+        """
+        # Create a new group configurations
+        self.course_fixture._update_xblock(self.course_fixture._course_location, {
+            "metadata": {
+                u"user_partitions": [
+                    UserPartition(0, "Name", "Description.", [Group("0", "Group A"), Group("1", "Group B")]).to_json(),
+                ],
+            },
+        })
+
+        # Assign newly created group configuration to unit
+        vertical = self.course_fixture.get_nested_xblocks(category="vertical")[0]
+        self.course_fixture.create_xblock(
+            vertical.locator,
+            XBlockFixtureDesc('split_test', 'Test Content Experiment', metadata={'user_partition_id': 0})
+        )
+        unit = CourseOutlineUnit(self.browser, vertical.locator)
+
+        # Go to the Group Configuration Page
+        self.page.visit()
+        config = self.page.group_configurations[0]
+        config.edit()
+        # Check that warning icon is present
+        css = ".wrapper-group-configuration-validation .icon-warning-sign"
+        self.assertTrue(self.page.q(css=css).present)
+        # Check that warning message is present
+        css = ".wrapper-group-configuration-validation .group-configuration-validation-text"
+        self.assertTrue(self.page.q(css=css).present)
+        self.assertIn(
+            "This configuration is currently used in content experiments. If you make changes to the groups, you may need to edit those experiments.",
+            self.page.q(css=css).text[0]
         )
