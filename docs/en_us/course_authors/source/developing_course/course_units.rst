@@ -228,7 +228,7 @@ Visible to Staff Only
 ===========================
 
 When you :ref:`hide a unit from students<Hide a Unit from Students>`, the
-unit's publishign status changes to **Visible to Staff Only**.
+unit's publishing status changes to **Visible to Staff Only**.
 
 .. image:: ../Images/unit-unpublished.png
  :alt: Status panel of a unit that has pending changes

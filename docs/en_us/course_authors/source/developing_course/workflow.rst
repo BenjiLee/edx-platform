@@ -18,7 +18,7 @@ course content, with links to more details. See:
 .. _Understanding Course Building Blocks:
 
 ************************************************
-Step 1: Understanding Course Building Blocks
+Understanding Course Building Blocks
 ************************************************
 
 Before you begin, you should understand the building blocks of an edX course.
@@ -39,7 +39,7 @@ Before you begin, you should understand the building blocks of an edX course.
 .. _Creating New Course Content:
 
 ****************************************
-Step 2: Creating New Course Content
+Creating New Course Content
 ****************************************
 
 Once you understand the way edX courses are structured, you can start
@@ -70,7 +70,7 @@ Content>` throughout the creation process.
 .. _Making Course Content Visible to Students:
 
 ******************************************************
-Step 3: Making Course Content Visible to Students
+Making Course Content Visible to Students
 ******************************************************
 
 When you create your content, you'll also specify if and when students will be
@@ -87,17 +87,18 @@ For more information, see :ref:`Controlling Content Visibility`.
 .. _Revising Content:
 
 ****************************
-Step 4: Revising Content
+Revising Content
 ****************************
 
-You can revise your course content at any time. When you :ref:`reorganize
-sections, subsections, and units<Reorganize the Course Outline>` in the outline
-the new order is immediately visible to students, if the section and subsection
-are released.
+You can revise your course content at any time. 
 
-When you :ref:`edit a unit<Edit a Unit>`, or :ref:`components<Add a Component>`
-within a unit, you must
-:ref:`publish<Publish a Unit>` those changes to make them visible to students.
+* When you :ref:`reorganize sections, subsections, and units<Reorganize the
+  Course Outline>` in the outline, the new order is immediately visible to
+  students if the section and subsection are released.
+
+* When you :ref:`edit a unit<Edit a Unit>`, or :ref:`components<Add a
+  Component>` within a unit, you must :ref:`publish<Publish a Unit>` those
+  changes to make them visible to students.
 
 The following diagram summarizes the content revision workflow and content
 visibility:

@@ -192,7 +192,7 @@ See :ref:`Set the Assignment Type and Due Date for a Subsection` for
 instructions on designating a subsection as a graded assignment.
 
 Within a graded subsection, you create problems of the type designated for that
-subsection. You cannotß not mix problems of different assignment types in the
+subsection. You cannot not mix problems of different assignment types in the
 same subsection.
 
 For example, if you want to create a homework assignment and a lab for a

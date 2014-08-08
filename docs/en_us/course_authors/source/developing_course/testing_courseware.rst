@@ -40,8 +40,8 @@ Students see the same content in the LMS:
 
 IMAGE OF UNIT IN LMS
 
-You then decide to add a multiple choice question to the unit, but you do not
-yet publish the change.
+Before you publish this change, you can see what the question will look to
+students.
 
 IMAGE OF DRAFT UNIT - With PREVIEW button circled
 
@@ -68,8 +68,9 @@ multiple choice question, until you :ref:`publish the change<Publish a Unit>`.
 View Your Live Course
 ******************************************
 
-You can view your course in the LMS, as a student sees it, directly from
-Studio. You can see your course in `Staff View`_ or `Student View`_
+When you are working in Studio, you can test your course by viewing it in the
+LMS. In the LMS, you can see your course as a student sees it. You can see your
+course in `Staff View`_ or `Student View`_
 
 While you work in Studio, you can switch to your live course to see how your
 course appears to students in two ways.
@@ -86,18 +87,11 @@ course appears to students in two ways.
 Staff View
 =================
 
-When you log in as a course team member, you see see the course in the **Staff
-View**.
+You see the course in the **Staff View**.
 
 .. image:: ../Images/Live_Course_Staff_View.png
  :alt: Image of the Courseware page in a live course with Staff View indicated
      at top right and a View Unit in Studio button
-
-When you view your course in **Staff View**, you can execute tests to make
-sure that your course works the way you intend. For example, members of the
-course team can work through the problems to verify that the correct answer
-gets a green check for correct, and that any answer other than the correct one
-gets a red X for incorrect.
  
 In **Staff View**:
 
@@ -113,11 +107,17 @@ In **Staff View**:
 * You can access the Instructor Dashboard, which has features and reports that
   help you :ref:`run your course<Running Your Course Index>`.
 
+When you view your course in **Staff View**, you can execute tests to make sure
+that your course works the way you intend. For example,  before the release
+date of a subsection, members of the course team can work through the problems
+to verify that the correct answer gets a green check for correct, and that any
+answer other than the correct one gets a red X for incorrect.
+
 =================
 Student View
 =================
 
-When viewing your course in the LMS, you can switch to student view, to see the
+When viewing your course in the LMS, you can switch to student view to see the
 content exactly how students will see it.
 
 To switch from **Staff View** to **Student View** and back again, click **Staff
@@ -129,7 +129,7 @@ View** or **Student View** in the upper right corner.
 
 In **Student View**:
 
-* You do not sections or subsections that have not yet been released.
+* You do not see sections or subsections that have not yet been released.
 
 * If the section and subsection are released, you see units that are
   :ref:`Published and Live`. For units that are
@@ -137,8 +137,7 @@ In **Student View**:
   unit. 
 
 * You do not see units that are :ref:`Draft (Never Published)` or
-  :ref:`Visible to Staff Only`. To see these units, you must use Preview
-  mode as described in :ref:`Preview Course Content`.
+  :ref:`Visible to Staff Only`. To see these units, you must switch back to Instructor view or use Preview mode as described in :ref:`Preview Course Content`.
 
 * You can access the Instructor Dashboard, which has features and reports that
   help you run your course.
@@ -148,13 +147,15 @@ In **Student View**:
 Open Studio from Your Live Course
 *************************************
 
-When you are viewing your course as **Staff View**, you can open Studio
-directly.
- 
+When you are viewing your course in the LMS as **Staff View**, you can open
+Studio directly.
+   
 * In a unit page, click **View Unit in Studio**.
   
   .. image:: ../Images/Live_Studio_from_LMS_Unit.png
    :alt: The View Unit in Studio button in an LMS unit
+
+  The unit page opens in Studio.
  
 * In the Instructor Dashboard, click **View Course in Studio** to open the
   course outline.

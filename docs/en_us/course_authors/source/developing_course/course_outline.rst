@@ -5,7 +5,8 @@ Developing Your Course Outline
 ###################################
 
 As you develop your course, you work primarily in the edX Studio course
-outline.  See the following information about working with the course outline:
+outline.  This chapter includes the following information about working with
+the course outline:
 
 * `Open the Course Outline`_
 * `Example of a Developed Course in the Outline`_
@@ -15,8 +16,8 @@ outline.  See the following information about working with the course outline:
 * `Reorganize the Course Outline`_
 * `Delete Content in the Course Outline`_
   
-See the following chapters for information on working with different content
-levels in the outline:
+See the following chapters for information about working with the course
+building blocks in the course outline:
 
 * :ref:`Developing Course Sections`
 * :ref:`Developing Course Subsections`
@@ -30,7 +31,12 @@ Open the Course Outline
 To view the course outline:
 
 #. Log in to edX Studio.
-#. From the **Content** menu, select **Outline**.
+#. In the **My Courses** page, select the course you want to develop.
+
+   The course outline opens by default when you open a course.
+
+When working in a course, to open the outline, from the **Content** menu,
+select **Outline**.
    
 The first time you view an outline for a course, it contains no content. 
 
@@ -50,17 +56,16 @@ to look like this example:
 .. image:: ../Images/outline-callouts.png
  :alt: An outline with callouts for sections, subsections, and units
 
-As this example shows, the course is organized at the following levels:
+As this example shows, the course is organized into the following levels:
 
 #. :ref:`Sections<Developing Course Sections>`
 #. :ref:`Subsections<Developing Course Subsections>`
 #. :ref:`Units<Developing Course Units>`
-#. :ref:`Components<Developing Course Components>`, which are not shown in the
-   outline.
+
+:ref:`Components<Developing Course Components>` are not shown in the outline. You add or access components by clicking on the units that contain them."
   
 Use the links above for more information and instructions on working with each
-type of object in the course. The rest of this chapter describes the course
-organization in the outline.
+type of object in the course. The rest of this chapter provides more detail about the course outline.
 
 ********************************************************
 View the Course Organization as a Student
@@ -79,9 +84,9 @@ course content:
 Navigate the Course Outline
 *******************************
 
-You navigate the course outline by expanding and collapsing sections and
-subsections.  Use the triangle icon next to a section or subsection name to
-expand or collapse its contents:
+In Studio, you navigate the course outline by expanding and collapsing sections
+and subsections.  Use the drop-down icon next to a section or subsection name
+to expand or collapse its contents:
 
 .. image:: ../Images/outline-expand-collapse.png
  :alt: The outline with expand and collapse icons circled
@@ -107,8 +112,8 @@ the outline page or at the bottom of the outline:
 .. image:: ../Images/outline-create-section.png
  :alt: The outline with the New Section buttons circled
 
-To add a subsection to the end of the section, expand a section and click **New
-Subsection**:
+To add a subsection to the end of the section, expand the section and click
+**New Subsection**:
 
 .. image:: ../Images/outline-new-subsection.png
  :alt: The outline with the New Subsection button circled
@@ -128,10 +133,10 @@ Reorganize the Course Outline
 ************************************************
 
 You can reorganize your course content by dragging and dropping sections,
-subsections and units to new locations in the outline.
+subsections, and units to new locations in the outline.
 
-To move an section, subsection, or unit, hover over the handle on the right of
-the object's box until the mouse pointer changes to a four-headed arrow:
+To move a section, subsection, or unit, hover over the handle on the right of
+the object's box until the cursor changes to a four-headed arrow:
 
 **IMAGE**
 
@@ -168,5 +173,6 @@ Click the delete icon in the box for the object you want to delete:
 You are prompted to confirm the deletion.
 
 .. note::
- When you delete an object, all contained objects are deleted. For example,
- when you delete a subsection, all units in that subsection are deleted.
+ When you delete an object, all objects that it contains are deleted. For
+ example, when you delete a subsection, all units in that subsection are
+ deleted.

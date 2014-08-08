@@ -1,7 +1,7 @@
 .. _Developing Course Subsections:
 
 ###################################
-Developing Course Subections
+Developing Course Subsections
 ###################################
 
 To develop subsections in your course, you must first understand the
@@ -23,7 +23,7 @@ Subsection tasks:
 
 
 ****************************
-What is a Subsection?
+What Is a Subsection?
 ****************************
 
 Sections are divided into subsections, which in turn contain one or more units.
@@ -35,8 +35,8 @@ principle. Subsections are sometimes called “lessons” or “learning sequenc
 Viewing Subsections in the Outline
 ***********************************
 
-The follow example shows three subsections in a section, all collapsed, in the
-course outline:
+The following example shows three subsections in a section, all collapsed, in
+the course outline:
 
 .. image:: ../Images/subsections.png
  :alt: Three collapsed subsections in the outline
@@ -47,7 +47,7 @@ The Student View of a Subsection
 *********************************
 
 Students see subsections in the Courseware tab, listed beneath the expanded
-section. In the following example, six subsections are circled, and the first
+section. In the following example, seven subsections are circled, and the first
 is open.
 
 .. image:: ../Images/subsections_student.png
@@ -58,43 +58,42 @@ is open.
 Subsections and Visibility to Students
 ************************************************
 
-Students never see content in a subsection that has an unscheduled or future
-release date.
+Students cannot see any content in a subsection if the subsection's release
+date is unscheduled or has not passed.
 
-If the release date of both the subsection and the parent section have passed,
-students see published units in the subsection.
+If a subsection's release date has passed, students can see content in the
+subsection if the following three conditions are met:
 
-However, students do not necessarily see all content in the subsection.
-
-Students may not see content in a unit if it was never published, or if it is
-hidden from students.
+* The release date of the parent section has passed.
+* The units have been published.
+* The units are not hidden from students.
 
 ************************************************
 Release Statuses of Subsections
 ************************************************
 
-As an course author, you control the release status of subsections.  For the
+As a course author, you control the release status of subsections.  For the
 content of a subsection to be visible to students, the subsection must be
 released. See the following for more information about the possible releases
 statuses of subsections:
 
-* `Scheduled with Section`_
+* `Scheduled with the Section`_
 * `Unscheduled`_
 * `Scheduled Later than the Section`_
 * `Scheduled with Unpublished Changes`_
 * `Released with Unpublished Changes`_
 * `Released`_
 
-=======================
-Scheduled with Section
-=======================
+==========================
+Scheduled with the Section
+==========================
 
 When you create a subsection, it is set by default to release at the same time
 as the section it is in. Therefore, published content in the subsection is
 visible to students at the date and time the section is released.
 
 The following example shows how an subsection in the Scheduled with Section
-state is displayed in the outline, with a green bar:
+state is displayed in the outline, summarized with a green bar:
 
 .. image:: ../Images/subsection-scheduled.png
  :alt: A subsection scheduled to release with the section
@@ -111,7 +110,7 @@ Regardless of the publishing status of units within the subsection, no content
 in an unscheduled subsection is visible to students.
 
 The following example shows how an unscheduled subsection is displayed in the
-outline, with a gray bar:
+outline, summarized with a gray bar:
 
 .. image:: ../Images/subsection-unscheduled.png
  :alt: An unscheduled subsection
@@ -127,11 +126,11 @@ Scheduled Later than the Section
 You can set a subsection to release on a date after the section releases. 
 
 Content in a subsection that is scheduled for release on a future date is not
-visible to students, regardless of the published status of the units it
-contains.
+visible to students, even if some or all of the units in the subsection are
+published.
 
-The following example shows how an subsection in the Scheduled state is
-displayed in the outline:
+The following example shows the way that a subsection that will release after
+its parent subsection appears in the course outline:
 
 .. image:: ../Images/subsection-scheduled-different.png
  :alt: A subsection scheduled to release later than the section
@@ -150,7 +149,7 @@ published version of units within the subsection are made visible to students.
 The changes in units are not visible to students until you publish them.
 
 The following example shows how a scheduled subsection with unpublished changes
-is displayed in the outline, with a yellow bar:
+is displayed in the outline, summarized with a yellow bar:
 
 .. image:: ../Images/section-scheduled-with-changes.png
  :alt: A scheduled subsection with unpublished changes
@@ -163,8 +162,8 @@ Released with Unpublished Changes
 If you modify a unit within a released subsection, those modifications are not
 visible to students until you publish them.
 
-The following example shows how a subsection in the released state with
-unpublished changes is displayed in the outline, with a yellow bar:
+The following example shows how a released section that has unpublished changes
+appears in the outline, summarized with a yellow bar:
 
 .. image:: ../Images/section-released-with-changes.png
  :alt: A released subsection with unpublished changes
@@ -173,11 +172,11 @@ unpublished changes is displayed in the outline, with a yellow bar:
 Released
 ===========================
 
-A subsection that is released is visible to students; however students see only
-units within the subsection that are published.
+A subsection that is released is visible to students; however, students see
+only units within the subsection that are published.
 
 The following example shows how a released subsection is displayed in the
-outline, with a blue bar:
+outline, summarized with a blue bar:
 
 .. image:: ../Images/subsection-released.png
  :alt: A released subsection
@@ -187,11 +186,11 @@ Staff Only Content
 ===========================
 
 A subsection can contain a unit that is hidden from students and available to
-staff only. That unit is not visible to students, regardless of the release
-date of the subsection.
+staff only. That unit is not visible to students, even if the subsection has
+been released.
 
 The following example shows how an subsection that contains a unit that is
-hidden from students is displayed in the outline, with a black bar:
+hidden from students is displayed in the outline, summarized with a black bar:
 
 .. image:: ../Images/section-hidden-unit.png
  :alt: A section with a hidden unit 
@@ -221,7 +220,7 @@ Change a Subsection Name
 ********************************
 
 To change a subsection name, click the Edit icon next to the subsection name.
-The name field becomes writable. Enter the new name and tab or click out of the
+The name field becomes editable. Enter the new name and tab or click out of the
 field to save the name.
 
 .. _Set a Subsection Release Date:
@@ -237,7 +236,7 @@ To set the subsection release date:
    .. image:: ../Images/subsections-settings-icon.png
     :alt: The subsection settings icon circled
 
-   The Settings dialog box opens.
+   The **Settings** dialog box opens.
 
 #. Enter the release date and time for the section:
 
@@ -286,7 +285,7 @@ For more information, see :ref:`Establish a Grading Policy`.
 Delete a Subsection
 ********************************
 
-When you delete a subsection, you delete all units within the section.
+When you delete a subsection, you delete all units within the subsection.
 
 .. warning::  
  You cannot restore course content after you delete it. To ensure you do not

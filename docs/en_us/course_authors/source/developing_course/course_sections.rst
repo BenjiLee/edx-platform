@@ -22,7 +22,7 @@ Section tasks:
 
 
 ****************************
-What is a Section?
+What Is a Section?
 ****************************
 
 A section is the topmost category in your course. A section can represent a
@@ -42,10 +42,9 @@ The follow example shows four sections, all collapsed, in the course outline:
 The Student View of a Section
 ******************************
 
-Students see sections in the Courseware tab, at the top level of the left-hand
-navigation tree. Students can expand one section at a time to see its contents.
-In the following example, two sections are circled, and the second one is
-expanded to show its subsections:
+Students see sections in the **Courseware** tab. Students can expand one
+section at a time to see its contents. In the following example, three sections
+are circled, and the third one is expanded to show its subsections:
 
 .. image:: ../Images/sections_student.png
  :alt: The students view of the course with two sections circled
@@ -54,17 +53,15 @@ expanded to show its subsections:
 Sections and Visibility to Students
 ************************************************
 
-Students never see a section that has an unscheduled or future release date.
+Students cannot see any content in the section if the section's release date is
+unscheduled or has not passed.
 
-If the release date of the section has passed, students see content according
-to the release date of the subsections and the publish state of the units.
+If a section's release date has passed, students can see content in the section
+if:
 
-Students do not necessarily see all content in a released section. Students may
-not see content in:
-
-* A subsection, if its release date is in the future.
-  
-* A unit, if it was never published, or if it is hidden from students.
+* The release date for the subsection that contains that content has passed.
+* The unit has been published.
+* The unit is not hidden from students.
 
 ************************************************
 Release Statuses of Sections
@@ -87,15 +84,17 @@ Unscheduled
 
 If you do not change the :ref:`course start date<The Course Start Date>`
 default value, ``1/1/2030 00:00:00 UTC``, when you create a new section, its
-release date will be ``Unscheduled``. When the section release date is
-``Unscheduled``, students cannot see any content in that section, regardless of
+release date will appear as ``Unscheduled``. When the section release date is
+unscheduled, students cannot see any content in that section, regardless of
 the publishing status of that content.
 
 If you have modified the course start date, when you create a new section, the
 default release date is the course start date.
 
 The following example shows how an unscheduled section is displayed in the
-outline, with a gray bar:
+outline, summarized with a gray bar:
+
+**REDO**
 
 .. image:: ../Images/section-unscheduled.png
  :alt: An unscheduled section
@@ -111,7 +110,7 @@ students until after the release date. Regardless of the publishing status of
 content within the section, the entire section will not visible to students.
 
 The following example shows how a section that is scheduled for release is
-displayed in the outline, with a green bar:
+displayed in the outline, summarized with a green bar:
 
 .. image:: ../Images/section-future.png
  :alt: An section scheduled to release in the future
@@ -122,12 +121,12 @@ The scheduled date must pass for the section to be visible to students.
 Released
 ===========================
 
-A section that is released is visible to students; however students see only
+A section that is released is visible to students; however, students see only
 subsections within the section that are also released, and units that are
 published.
 
 The following example shows how a released section is displayed in the outline,
-with a blue bar:
+summarized with a blue bar:
 
 .. image:: ../Images/section-released.png
  :alt: An unscheduled section
@@ -136,9 +135,8 @@ with a blue bar:
 Released with Unpublished Changes
 ==================================
 
-If you change a unit in a released section but do not publish the changes, the
-section status becomes ``Released with Unpublished Changes``.  In this
-situation students view the last published version of the modified unit.
+If you change a unit in a released section but do not publish the changes,
+students see the last published version of the modified unit.
 
 The following example shows how a released section with unpublished changes is
 displayed in the outline, with a yellow bar. The section is expanded to show
@@ -158,7 +156,7 @@ staff only. That unit is not visible to students, regardless of the release
 date of the section or subsection.
 
 The following example shows how a section that contains a unit that is hidden
-from students is displayed in the outline, with a black bar:
+from students is displayed in the outline, summarized with a black bar:
 
 .. image:: ../Images/section-hidden-unit.png
  :alt: A section with a hidden unit 
@@ -208,7 +206,7 @@ To edit a section name, hover over the section name to show the Edit icon:
 .. image:: ../Images/section-edit-icon.png
   :alt: The Edit Section Name icon
 
-Click the Edit icon next to the section name. The name field becomes writable.
+Click the Edit icon next to the section name. The name field becomes editable.
 Enter the new name and tab or click out of the field to save the name.
 
 .. _Set a Section Release Date:
@@ -224,7 +222,7 @@ To set the section release date:
    .. image:: ../Images/section-settings-box.png
     :alt: The section settings icon circled
 
-   The Settings dialog box opens.
+   The **Settings** dialog box opens.
 
 #. Enter the release date and time for the section:
    
@@ -247,9 +245,12 @@ section.
  delete content you may need later, you can move any unused content to a
  section in your course that you set to never release.
 
-Click the delete icon in the box for the section you want to delete:
+To delete a section:
 
-.. image:: ../Images/section-delete.png
- :alt: The section with Delete icon circled
+#. Click the delete icon in the section that you want to delete:
 
-You are prompted to confirm the deletion.
+  .. image:: ../Images/section-delete.png
+   :alt: The section with Delete icon circled
+
+#. When you receive the confirmation prompt, click **Yes, delete this
+   section**.
