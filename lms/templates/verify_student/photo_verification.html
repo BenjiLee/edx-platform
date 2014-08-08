@@ -366,6 +366,7 @@
                     </ul>
                   </li>
 
+                  %if len(suggested_prices) > 0:
                   <li class="review-task  review-task-contribution">
                     <h4 class="title">${_("Check Your Contribution Level")}</h4>
 
@@ -376,6 +377,19 @@
                     <%include file="/course_modes/_contribution.html" args="suggested_prices=suggested_prices, currency=currency, chosen_price=chosen_price, min_price=min_price"/>
 
                   </li>
+                  %else:
+                  <li class="review-task  review-task-contribution">
+                    <h4 class="title">${_("Your Course Total")}</h4>
+                    <ul class="list-fields contribution-options">
+                        <li class="field contribution-option">
+                            <span class="deco-denomination">$</span>
+                            <span class="label-value">${chosen_price}</span>
+                            <span class="denomination-name">${currency}</span>
+                            </label>
+                        </li>
+                    </ul>
+                  </li>
+                  %endif
                 </ol>
               </div>
 

@@ -74,18 +74,27 @@ class VerifyView(View):
             # bookkeeping-wise just to start over.
             progress_state = "start"
 
-        modes_dict = CourseMode.modes_for_course_dict(course_id)
-        verify_mode = modes_dict.get('verified', None)
+        # we prefer professional over verify
+        current_mode = CourseMode.verified_mode_for_course(course_id)
+
         # if the course doesn't have a verified mode, we want to kick them
         # from the flow
-        if not verify_mode:
+        if not current_mode:
             return redirect(reverse('dashboard'))
         if course_id.to_deprecated_string() in request.session.get("donation_for_course", {}):
             chosen_price = request.session["donation_for_course"][course_id.to_deprecated_string()]
         else:
-            chosen_price = verify_mode.min_price
+            chosen_price = current_mode.min_price
 
         course = modulestore().get_course(course_id)
+        if current_mode.suggested_prices != '':
+            suggested_prices = [
+                decimal.Decimal(price)
+                for price in current_mode.suggested_prices.split(",")
+            ]
+        else:
+            suggested_prices = []
+
         context = {
             "progress_state": progress_state,
             "user_full_name": request.user.profile.name,
@@ -95,15 +104,12 @@ class VerifyView(View):
             "course_org": course.display_org_with_default,
             "course_num": course.display_number_with_default,
             "purchase_endpoint": get_purchase_endpoint(),
-            "suggested_prices": [
-                decimal.Decimal(price)
-                for price in verify_mode.suggested_prices.split(",")
-            ],
-            "currency": verify_mode.currency.upper(),
+            "suggested_prices": suggested_prices,
+            "currency": current_mode.currency.upper(),
             "chosen_price": chosen_price,
-            "min_price": verify_mode.min_price,
+            "min_price": current_mode.min_price,
             "upgrade": upgrade == u'True',
-            "can_audit": "audit" in modes_dict,
+            "can_audit": CourseMode.mode_for_course(course_id, 'audit') is not None,
         }
 
         return render_to_response('verify_student/photo_verification.html', context)
@@ -137,7 +143,6 @@ class VerifiedView(View):
             course_id.to_deprecated_string(),
             verify_mode.min_price
         )
-
         course = modulestore().get_course(course_id)
         context = {
             "course_id": course_id.to_deprecated_string(),
@@ -185,19 +190,24 @@ def create_order(request):
         donation_for_course[course_id] = amount
         request.session['donation_for_course'] = donation_for_course
 
-    verified_mode = CourseMode.modes_for_course_dict(course_id).get('verified', None)
+    # prefer professional mode over verified_mode
+    current_mode = CourseMode.verified_mode_for_course(course_id)
+
+    if current_mode.slug == 'professional':
+        amount = current_mode.min_price
 
     # make sure this course has a verified mode
-    if not verified_mode:
+    if not current_mode:
         return HttpResponseBadRequest(_("This course doesn't support verified certificates"))
 
-    if amount < verified_mode.min_price:
+    if amount < current_mode.min_price:
         return HttpResponseBadRequest(_("No selected price or selected price is below minimum."))
 
     # I know, we should check this is valid. All kinds of stuff missing here
     cart = Order.get_cart_for_user(request.user)
     cart.clear()
-    CertificateItem.add_to_order(cart, course_id, amount, 'verified')
+    enrollment_mode = current_mode.slug
+    CertificateItem.add_to_order(cart, course_id, amount, enrollment_mode)
 
     params = get_signed_purchase_params(cart)
 
