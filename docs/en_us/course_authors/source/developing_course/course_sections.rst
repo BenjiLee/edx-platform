@@ -94,8 +94,6 @@ default release date is the course start date.
 The following example shows how an unscheduled section is displayed in the
 outline, summarized with a gray bar:
 
-**REDO**
-
 .. image:: ../Images/section-unscheduled.png
  :alt: An unscheduled section
 
@@ -252,5 +250,5 @@ To delete a section:
   .. image:: ../Images/section-delete.png
    :alt: The section with Delete icon circled
 
-#. When you receive the confirmation prompt, click **Yes, delete this
+2. When you receive the confirmation prompt, click **Yes, delete this
    section**.

@@ -32,23 +32,31 @@ configured in Studio. You see content in units with the publishing status
 :ref:`Draft (Never Published)`, :ref:`Draft (Unpublished Changes)`, or
 :ref:`Visible to Staff Only`. 
 
-For example, you publish a unit with a video and discussion:
+For example, you :ref:`publish a unit<Publish a Unit>` with a video and
+discussion:
 
-IMAGE OF UNIT PAGE IN STUDIO
+.. image:: ../Images/test-unit-studio.png
+ :alt: A unit in Studio with a video and discussion
 
 Students see the same content in the LMS:
 
-IMAGE OF UNIT IN LMS
+.. image:: ../Images/test-unit-lms.png
+ :alt: A unit in the LMS with a video and discussion
+
+You later decide to add a multiple choice problem to the unit, before the
+discussion:
+
+.. image:: ../Images/test-unit-studio-added-comp.png
+ :alt: A unit in Studio with a video, problem, and discussion
 
 Before you publish this change, you can see what the question will look to
 students.
 
-IMAGE OF DRAFT UNIT - With PREVIEW button circled
-
 When you click **Preview Changes**,  you see the unit in the LMS with
 the multiple choice question:
 
-IMAGE OF PREVIEWED UNIT
+.. image:: ../Images/test-unit-lms-added-comp.png
+ :alt: A unit in the LMS with a video, problem, and discussion
 
 This preview shows how students will experience the unit after you
 :ref:`publish the change<Publish a Unit>`.
@@ -77,11 +85,13 @@ course appears to students in two ways.
 
 * From the outline page, click **View Live**.
    
-   ADD IMAGE
+  .. image:: ../Images/test-outline-view-live.png
+   :alt: View live button on the outline
 
-* In a unit page, click **View Live**.
+* In a unit page, click **View Live Version**.
    
-   ADD IMAGE 
+  .. image:: ../Images/test-unit-view-live.png
+   :alt: View Live Version button on the unit page
 
 =================
 Staff View

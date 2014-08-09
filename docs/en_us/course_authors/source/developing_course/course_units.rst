@@ -62,8 +62,6 @@ When you click on a unit name in the outline, the **Unit** page opens.
 The following example shows a unit page with two components, with circles and
 text to show different areas and controls in the page.
 
-**REDO**
-
 .. image:: ../Images/unit-page.png
  :alt: The Unit page
 
@@ -125,7 +123,7 @@ The following information summarizes whether or not students can see a unit.
 * Students never see a unit with the publishing status `Visible to Staff
   Only`_. See `Hide a Unit from Students`_ for more information.
 
-* Students do not see a unit with the publishing status `Published and Not Yet
+* Students do not see a unit with the publishing status `Published Not Yet
   Released`_ until the :ref:`release date <Release Dates>`. On the release
   date, the status changes to `Published and Live`_.
 
@@ -142,13 +140,13 @@ For more information, see :ref:`Controlling Content Visibility`.
 
 ************************************************
 Unit Publishing Status
-************************************************
+************************************************ 
 
 As an course author, you work with units in the following states:
 
 * `Draft (Never Published)`_
 * `Published and Live`_
-* `Published and Not Yet Released`_
+* `Published Not Yet Released`_
 * `Draft (Unpublished Changes)`_
 * `Visible to Staff Only`_
 
@@ -159,14 +157,16 @@ Draft (Never Published)
 ========================
 
 When you create a new unit and add components to it, the unit's publishing
-status is **Draft (Never Published)**, as shown in the right panel:
+status is **Draft (Never Published)**, as shown in the status panel:
 
 .. image:: ../Images/unit-never-published.png
  :alt: Status panel of a unit that has never been published
 
-The unit does not appear in the ribbon for the subsection in the LMS. Students
-do not see a Draft (Never Published) unit. Though you do not see the unit in
-the LMS, you can :ref:`preview the unit<Preview Course Content>`.
+In Studio, you see the version of the content that you're working on. Students
+never see a unit with this status, even if the release date has passed.
+
+Though you do not see the unit in the LMS, you can :ref:`preview the
+unit<Preview Course Content>`.
 
 You must :ref:`publish the unit<Publish a Unit>` for it to be included in the
 LMS.
@@ -177,49 +177,47 @@ LMS.
 Published and Live
 ====================
 
-When you publish a unit that is in a section and subsection that have released,
-the unit's publishing status is **Published and Live**, as shown in the right
-panel:
+The release date for the section and subsection have passed. You've published
+the unit and haven't made any changes to it. You and students both see the
+current version of the unit.
 
 .. image:: ../Images/unit-published.png
  :alt: Status panel of a unit that is published
 
-Such a unit is visible to students.
-
-.. _Published and Not Yet Released:
+.. _Published Not Yet Released:
 
 ====================================
-Published and Not Yet Released
+Published Not Yet Released
 ====================================
 
-When you publish a unit that is in a section and subsection that have not
-released, the unit's publishing status is **Published and Not Yet Released**,
-as shown in the right panel:
+You've published the unit, but the release date hasn't passed. Students cannot
+see this unit until the release date passes.
 
 .. image:: ../Images/unit-published_unreleased.png
  :alt: Status panel of a unit that is published but not released
-
-Students do not this this unit until the release date passes.
 
 .. _Draft (Unpublished Changes):
 
 ===========================
 Draft (Unpublished Changes)
-===========================
+=========================== 
 
 When you edit a published unit, whether or not it is released, the unit's
 publishing status changes to **Draft (Unpublished Changes)**, as shown in the
-right panel:
+status panel:
 
 .. image:: ../Images/unit-pending-changes.png
  :alt: Status panel of a unit that has pending changes
 
-If the unit is released, students do not see your changes; they see the last
-published version of the unit. You must :ref:`publish the unit<Publish a Unit>`
-for students to see your changes.
+In Studio, you see the draft of the content that you're working on. If the
+release date has passed, students see the last published version of the unit.
+If the release date hasn't passed, students can't see your content.
+
+You must :ref:`publish the unit<Publish a Unit>` for students to see your
+changes.
 
 You can :ref:`preview the changes to a unit<Preview Course Content>` to test
-how your changes will appear to students.
+how your changes will appear to students after you publish the unit.
 
 .. _Visible to Staff Only:
 
@@ -230,11 +228,11 @@ Visible to Staff Only
 When you :ref:`hide a unit from students<Hide a Unit from Students>`, the
 unit's publishing status changes to **Visible to Staff Only**.
 
+Students never see a unit with this status, even if it has been published and
+the release date has passed.
+
 .. image:: ../Images/unit-unpublished.png
  :alt: Status panel of a unit that has pending changes
-
-Regardless of the release date or publishing history, students will never see a
-unit with this status.
 
 .. _Create a Unit:
 
@@ -243,7 +241,7 @@ Create a Unit
 ****************************
 
 You can create a unit from the outline or create a unit in the same subsection
-from the Unit page.
+from the unit page.
 
 To create a unit from the outline:
 
@@ -252,7 +250,6 @@ To create a unit from the outline:
 #. Click **New Unit** at the bottom of the expanded subsection. A new
    unit is added at the end of the subsection.
 #. On the unit page, the unit name is selected. Edit the name as needed.
-   Remember that students see the unit name in the courseware.
 #. :ref:`Add components<Add a Component>` to the new unit as needed.
 
 To create a new unit from a unit page:
@@ -265,7 +262,6 @@ To create a new unit from a unit page:
    The unit page for the new unit opens automatically.
 
 #. On the unit page, the unit name is selected. Edit the name as needed.
-   Remember that students see the unit name in the courseware.
 
 #. :ref:`Add components<Add a Component>` to the new unit as needed.
 
@@ -294,7 +290,13 @@ the unit<Publish a Unit>` to make your edits visible to students.
 Edit the Unit Name
 ==============================
 
-TBP
+To edit a unit name, hover over the name to show the Edit icon:
+
+.. image:: ../Images/unit-edit-icon.png
+  :alt: The Edit Unit Name icon
+
+Click the Edit icon next to the unit name. The name field becomes editable.
+Enter the new name and tab or click out of the field to save the name.
 
 ==============================
 Reorganize Components in Units
@@ -329,7 +331,7 @@ The unit opens in preview mode:
 
 When you are revising a previously published unit, it is helpful to preview
 your changes in one window and :ref:`view the published unit<View a Published
-Unit>` in a second window and compare the content.
+Unit>` in a second window.
 
 .. _Publish a Unit:
 
@@ -340,9 +342,9 @@ Publish a Unit
 Publishing a unit makes the current version of the unit in Studio available to
 students, if the release date for the section and subsection have passed.
 
-You publish a unit that is in the state `Draft (Never Published)`_ or `Draft
-(Unpublished Changes)`_. When you publish a unit the status changes to
-`Published and Live`_ or `Published and Not Yet Released`_.
+You publish a unit that has a status of `Draft (Never Published)`_ or `Draft
+(Unpublished Changes)`_. When you publish a unit, the status changes to
+`Published and Live`_ or `Published Not Yet Released`_.
 
 To publish the unit, click **Publish** in the status panel:
 
@@ -401,10 +403,10 @@ Version** button is not enabled.
 Hide a Unit from Students
 ****************************
 
-You can prevent students from seeing a unit regardless of the unit state or the
-release schedules of the section and subsection.
+You can prevent students from seeing a unit regardless of the unit status or
+the release schedules of the section and subsection.
 
-Check **Hide from students** in the status panel:
+To do this, select the **Hide from students** checkbox in the status panel:
 
 .. image:: ../Images/unit-hide.png
  :alt: Unit status panel with Hide from Students checked
@@ -425,7 +427,6 @@ You are prompted to confirm that you want to make the unit visible to students.
  students, the current content in the unit is published. Any changes you made
  to the unit when it was hidden from students will now be visible to students.
 
-
 ********************************
 Delete a Unit
 ********************************
@@ -437,11 +438,14 @@ When you delete a unit, you delete all components within the unit.
 .. warning::  
  You cannot restore course content after you delete it. To ensure you do not
  delete content you may need later, you can move any unused content to a
- section in your course that you set to never release.
+ section in you
 
-Click the delete icon in the box for the unit you want to delete:
+To delete a unit:
+
+#. Click the delete icon in the box for the unit you want to delete:
 
 .. image:: ../Images/section-delete.png
  :alt: The section with Delete icon circled
 
-You are prompted to confirm the deletion.
+#. When you receive the confirmation prompt, click **Yes, delete this
+   unit**.

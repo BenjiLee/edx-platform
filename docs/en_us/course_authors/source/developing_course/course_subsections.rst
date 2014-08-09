@@ -292,9 +292,12 @@ When you delete a subsection, you delete all units within the subsection.
  delete content you may need later, you can move any unused content to a
  section in your course that you set to never release.
 
-Click the delete icon in the box for the subsection you want to delete:
+To delete a subsection:
 
-.. image:: ../Images/subsection-delete.png
- :alt: The subsection with Delete icon circled
+#. Click the delete icon in the subsection that you want to delete:
 
-You are prompted to confirm the deletion.
+  .. image:: ../Images/subsection-delete.png
+   :alt: The subsection with Delete icon circled
+
+2. When you receive the confirmation prompt, click **Yes, delete this
+   subsection**.

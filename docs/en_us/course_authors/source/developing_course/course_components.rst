@@ -72,7 +72,7 @@ After you add a component, it is not visible to students until you
 Edit a Component
 ********************
 
-To edit a component, click the Edit icon:
+To edit a component, click **Edit**:
 
 .. image:: ../Images/unit-edit.png
   :alt: Image of a unit with Edit icon circled
@@ -88,7 +88,7 @@ Set the Display Name for a Component
 
 Each component has a display name that shows in the component header when you
 can edit the component. The display name also shows to students when they hover
-the mouse pointer over the unit icon in the course accordion.
+the cursor over the unit icon in the course ribbon.
 
 To set the display name for a component:
 
@@ -115,7 +115,7 @@ beneath the first component. You can then modify the duplicate. In many cases,
 duplicating a component and editing a copy is a faster way to create new
 content.
 
-To duplicate a component, click th Duplicate icon in the component header:
+To duplicate a component, click the Duplicate icon in the component header:
 
 .. image:: ../Images/unit-dup.png
   :alt: Image of a unit with Duplicate icon circled
@@ -134,11 +134,14 @@ Delete a Component
 .. note:: 
  Be sure you want to delete the component. You can not undo the deletion.
 
-To delete a component, click the Delete icon in the component header:
+To delete a component:
+
+#. Click the Delete icon in the component header:
 
 .. image:: ../Images/unit-delete.png
   :alt: Image of a unit with Delete icon circled
 
-Click the Delete icon.  Then confirm the deletion.
+2. When you receive the confirmation prompt, click **Yes, delete this
+   component**.
 
 After you delete a component, the component remians visible to students until you :ref:`publish the unit<Publish a Unit>`.
