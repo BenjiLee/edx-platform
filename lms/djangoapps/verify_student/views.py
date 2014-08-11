@@ -303,8 +303,14 @@ def show_requirements(request, course_id):
     """
     # TODO: seems borked for professional; we're told we need to take photos even if there's a pending verification
     course_id = SlashSeparatedCourseKey.from_deprecated_string(course_id)
+    upgrade = request.GET.get('upgrade', False)
     if CourseEnrollment.enrollment_mode_for_user(request.user, course_id) == ('verified', True):
         return redirect(reverse('dashboard'))
+    if SoftwareSecurePhotoVerification.user_has_valid_or_pending(request.user):
+        return redirect(
+            reverse('verify_student_verified',
+            kwargs={'course_id': course_id.to_deprecated_string()}) + "?upgrade={}".format(upgrade)
+        )
 
     upgrade = request.GET.get('upgrade', False)
     course = modulestore().get_course(course_id)
