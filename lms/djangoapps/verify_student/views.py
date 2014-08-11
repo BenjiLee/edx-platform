@@ -130,7 +130,6 @@ class VerifiedView(View):
         if CourseEnrollment.enrollment_mode_for_user(request.user, course_id) == ('verified', True):
             return redirect(reverse('dashboard'))
 
-        modes_dict = CourseMode.modes_for_course_dict(course_id)
         verify_mode = modes_dict.get('verified', None)
 
         if verify_mode is None:
@@ -304,6 +303,7 @@ def show_requirements(request, course_id):
 
     upgrade = request.GET.get('upgrade', False)
     course = modulestore().get_course(course_id)
+    modes_dict = CourseMode.modes_for_course_dict(course_id)
     context = {
         "course_id": course_id.to_deprecated_string(),
         "course_modes_choose_url": reverse("course_modes_choose", kwargs={'course_id': course_id.to_deprecated_string()}),
@@ -313,6 +313,7 @@ def show_requirements(request, course_id):
         "course_num": course.display_number_with_default,
         "is_not_active": not request.user.is_active,
         "upgrade": upgrade == u'True',
+        "modes_dict": modes_dict,
     }
     return render_to_response("verify_student/show_requirements.html", context)
 
