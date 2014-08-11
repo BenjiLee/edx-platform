@@ -351,8 +351,6 @@ class SplitTestModule(SplitTestFields, XModule, StudioEditableModule):
         """
         user_partition = self.descriptor.get_selected_partition()
 
-        modulestore = self.descriptor.system.modulestore
-
         for group in getattr(user_partition, 'groups', []):
             group_id = unicode(group.id)
             child_location = self.group_id_to_child.get(group_id, None)
