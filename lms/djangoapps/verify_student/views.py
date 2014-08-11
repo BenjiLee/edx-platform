@@ -110,6 +110,7 @@ class VerifyView(View):
             "min_price": current_mode.min_price,
             "upgrade": upgrade == u'True',
             "can_audit": CourseMode.mode_for_course(course_id, 'audit') is not None,
+            "modes_dict": CourseMode.modes_for_course_dict(course_id),
         }
 
         return render_to_response('verify_student/photo_verification.html', context)
@@ -130,6 +131,8 @@ class VerifiedView(View):
         if CourseEnrollment.enrollment_mode_for_user(request.user, course_id) == ('verified', True):
             return redirect(reverse('dashboard'))
 
+
+        modes_dict = CourseMode.modes_for_course_dict(course_id)
         verify_mode = modes_dict.get('verified', None)
 
         if verify_mode is None:
@@ -155,6 +158,7 @@ class VerifiedView(View):
             "create_order_url": reverse("verify_student_create_order"),
             "upgrade": upgrade == u'True',
             "can_audit": "audit" in modes_dict,
+            "modes_dict": modes_dict,
         }
         return render_to_response('verify_student/verified.html', context)
 
@@ -297,6 +301,7 @@ def show_requirements(request, course_id):
     """
     Show the requirements necessary for the verification flow.
     """
+    # TODO: seems borked for professional; we're told we need to take photos even if there's a pending verification
     course_id = SlashSeparatedCourseKey.from_deprecated_string(course_id)
     if CourseEnrollment.enrollment_mode_for_user(request.user, course_id) == ('verified', True):
         return redirect(reverse('dashboard'))
