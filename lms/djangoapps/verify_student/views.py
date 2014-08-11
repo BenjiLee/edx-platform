@@ -133,18 +133,19 @@ class VerifiedView(View):
 
 
         modes_dict = CourseMode.modes_for_course_dict(course_id)
-        verify_mode = modes_dict.get('verified', None)
 
-        if verify_mode is None:
+        # we prefer professional over verify
+        current_mode = CourseMode.verified_mode_for_course(course_id)
+
+        # if the course doesn't have a verified mode, we want to kick them
+        # from the flow
+        if not current_mode:
             return redirect(reverse('dashboard'))
+        if course_id.to_deprecated_string() in request.session.get("donation_for_course", {}):
+            chosen_price = request.session["donation_for_course"][course_id.to_deprecated_string()]
+        else:
+            chosen_price = current_mode.min_price
 
-        chosen_price = request.session.get(
-            "donation_for_course",
-            {}
-        ).get(
-            course_id.to_deprecated_string(),
-            verify_mode.min_price
-        )
         course = modulestore().get_course(course_id)
         context = {
             "course_id": course_id.to_deprecated_string(),
@@ -153,7 +154,7 @@ class VerifiedView(View):
             "course_org": course.display_org_with_default,
             "course_num": course.display_number_with_default,
             "purchase_endpoint": get_purchase_endpoint(),
-            "currency": verify_mode.currency.upper(),
+            "currency": current_mode.currency.upper(),
             "chosen_price": chosen_price,
             "create_order_url": reverse("verify_student_create_order"),
             "upgrade": upgrade == u'True',
