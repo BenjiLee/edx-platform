@@ -219,3 +219,5 @@
 .. _Opaque Keys: https://github.com/edx/edx-platform/wiki/Opaque-Keys
 
 .. _Ubuntu installation instructions: https://github.com/edx/configuration/wiki/edX-Ubuntu-12.04-64-bit-Installation
+
+.. _edX Product and Engineering Newsletter: http://edx.readthedocs.org/projects/edx-open-response-assessments/en/latest/

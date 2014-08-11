@@ -34,7 +34,7 @@ edX Studio
       .. image:: ../images/PubChange_NewOutline.png
         :alt: The Course Outline page with release dates indicated and callouts for the "Settings" icons that allows you to change it
 
-  For a comparison between the new publishing workflow and the previous workflow, see %%link to come from Mark.
+  For a comparison between the new publishing workflow and the previous workflow, see our most recent `edX Product and Engineering Newsletter`_.
 
 * A new setting, **Enable video caching system**, is now available on the
   **Advanced Settings** page. When set to true (the default), HTML5 videos use
