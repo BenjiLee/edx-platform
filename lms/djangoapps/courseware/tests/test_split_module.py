@@ -3,7 +3,7 @@ Test for split test XModule
 """
 from django.core.urlresolvers import reverse
 from django.test.utils import override_settings
-from mock import MagicMock, patch
+from mock import MagicMock
 
 from student.tests.factories import UserFactory, CourseEnrollmentFactory
 from courseware.tests.modulestore_config import TEST_DATA_MIXED_MODULESTORE
@@ -111,14 +111,12 @@ class SplitTestBase(ModuleStoreTestCase):
             value=str(user_tag)
         )
 
-        with patch("xmodule.vertical_module.VerticalModule.update_names") as mocked:
-            mocked.return_value = None
-            resp = self.client.get(reverse(
-                'courseware_section',
-                kwargs={'course_id': self.course.id.to_deprecated_string(),
-                        'chapter': self.chapter.url_name,
-                        'section': self.sequential.url_name}
-            ))
+        resp = self.client.get(reverse(
+            'courseware_section',
+            kwargs={'course_id': self.course.id.to_deprecated_string(),
+                    'chapter': self.chapter.url_name,
+                    'section': self.sequential.url_name}
+        ))
         content = resp.content
 
         # Assert we see the proper icon in the top display
@@ -152,8 +150,8 @@ class TestVertSplitTestVert(SplitTestBase):
         ['Group 1 Sees This Video', 'Group 1 Sees This HTML'],
     ]
     HIDDEN_CONTENT = [
-        ['Condition 0 vertical'],
-        ['Condition 1 vertical'],
+        ['alpha'],
+        ['beta'],
     ]
 
     # Data is html encoded, because it's inactive inside the
@@ -239,8 +237,8 @@ class TestSplitTestVert(SplitTestBase):
         ['Group 1 Sees This Video', 'Group 1 Sees This HTML'],
     ]
     HIDDEN_CONTENT = [
-        ['Condition 0 vertical'],
-        ['Condition 1 vertical'],
+        ['alpha'],
+        ['beta'],
     ]
 
     # Data is html encoded, because it's inactive inside the
