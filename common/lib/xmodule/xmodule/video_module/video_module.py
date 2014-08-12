@@ -41,6 +41,7 @@ from .video_xfields import VideoFields
 from .video_handlers import VideoStudentViewHandlers, VideoStudioViewHandlers
 
 from xmodule.video_module import manage_video_subtitles_save
+from edxval import api
 
 log = logging.getLogger(__name__)
 _ = lambda text: text
@@ -113,7 +114,15 @@ class VideoModule(VideoFields, VideoStudentViewHandlers, XModule):
                     sources[index] = new_url
 
         if self.download_video:
-            if self.source:
+            if self.edx_video_id and len(video_info.get("encoded_videos")) > 0:
+                video_info = api.get_video_info(self.edx_video_id)
+                encoded_videos = video_info.get("encoded_videos")
+                biggest_file_size = 0
+                for item in encoded_videos:
+                    if item.get("file_size") > biggest_file_size:
+                        biggest_file_size = item.get("file_size")
+                        download_video_link = item.get("url")
+            elif self.source:
                 download_video_link = self.source
             elif self.html5_sources:
                 download_video_link = self.html5_sources[0]
