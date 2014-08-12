@@ -98,6 +98,9 @@ if settings.FEATURES.get('ENABLE_GROUP_CONFIGURATIONS'):
         url(r'^group_configurations/{}/(?P<group_configuration_id>\d+)/?$'.format(settings.COURSE_KEY_PATTERN),
             'group_configurations_detail_handler'),
     )
+urlpatterns += patterns('',
+    url(r'^edxval/', include('edxval.urls')),
+)
 
 js_info_dict = {
     'domain': 'djangojs',
